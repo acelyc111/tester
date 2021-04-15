@@ -63,6 +63,7 @@ public:
         for (const auto& type : argument_types) {
             if (type->isNullable()) {
                 nullable = true;
+                break;
             }
         }
         if (nullable) {

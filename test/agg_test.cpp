@@ -41,6 +41,7 @@ TEST(AggTest, basic_test) {
     }
     std::cout << ans << std::endl;
     std::cout << *(int32_t*)place << std::endl;
+    ASSERT_EQ(ans, *(int32_t*)place);
     agg_function->destroy(place);
 }
 
@@ -74,6 +75,7 @@ TEST(AggTest, nullable_test) {
 
     std::cout << ans << std::endl;
     std::cout << res_column->get64(0) << std::endl;
+    ASSERT_EQ(ans, res_column->get64(0));
     agg_function->destroy(place);
     // factory.registerFunction()
 }
