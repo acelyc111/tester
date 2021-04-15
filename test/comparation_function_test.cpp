@@ -16,15 +16,15 @@ TEST(ComparationTest, basic_test) {
         column_vector_int32_2->insert(castToNearestFieldType(10 - i));
     }
 
-     auto col_res = ColumnUInt8::create();
-     ColumnUInt8::Container & vec_res = col_res->getData();
-     vec_res.resize(10);
-     NumComparisonImpl<Int32, Int32, GreaterOp<Int32, Int32>>::vector_vector(column_vector_int32_1->getData(),
-            column_vector_int32_2->getData(), vec_res);
+    auto col_res = ColumnUInt8::create();
+    ColumnUInt8::Container& vec_res = col_res->getData();
+    vec_res.resize(10);
+    NumComparisonImpl<Int32, Int32, GreaterOp<Int32, Int32>>::vector_vector(column_vector_int32_1->getData(),
+           column_vector_int32_2->getData(), vec_res);
 
-     for (int i = 0; i < 10; i++) {
-         ASSERT_EQ(i > 10 - i, col_res->getBool(i));
-     }
+    for (int i = 0; i < 10; i++) {
+        ASSERT_EQ(i > 10 - i, col_res->getBool(i));
+    }
 }
 
 TEST(ComparationTest, different_test) {
