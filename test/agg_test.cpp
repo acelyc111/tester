@@ -65,7 +65,7 @@ TEST(AggTest, nullable_test) {
     for (int i = 0; i < 4096; i++) {
         agg_function->add(place, column, i, nullptr);
     }
-    int ans = 0;
+    uint64_t ans = 0;
     for (int i = 0; i < 4096; i++) {
         ans += i;
     }

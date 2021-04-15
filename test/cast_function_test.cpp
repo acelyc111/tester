@@ -13,7 +13,7 @@ TEST(FunctionCastTest, NumberInnerCast) {
     ColumnWithTypeAndName type_and_name(vec->getPtr(), data_type, "From");
 
     DataTypePtr data_type_2(std::make_shared<DataTypeInt64>());
-    ColumnWithTypeAndName type_and_name_2(nullptr, data_type, "To");
+    ColumnWithTypeAndName type_and_name_2(nullptr, data_type_2, "To");
 
     ColumnNumbers arguments(1);
     arguments[0] = 0;

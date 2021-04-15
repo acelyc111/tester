@@ -9,6 +9,9 @@ TEST(ColumnConstTest, BasicTest) {
     auto const_v32 = ColumnConst::create(c32->getPtr(), 4096);
     auto cc = const_v32->convertToFullColumnIfConst();
     ASSERT_EQ(cc->size(), (size_t)4096);
+    for (int i = 0; i < 4096; ++i) {
+        ASSERT_EQ(0, (*cc)[i].get<Int32>());
+    }
 }
 } // namespace DB
 

@@ -26,7 +26,7 @@ TEST(BlockTest, BlockBasicTest) {
     DataTypePtr data_type(std::make_shared<DataTypeInt32>());
     ColumnWithTypeAndName type_and_name(vec->getPtr(), data_type, "echo");
     Block block({type_and_name});
-    ASSERT_EQ(block.getPositionByName("echo"), 1);
+    ASSERT_EQ(block.getPositionByName("echo"), size_t(0));
 }
 } // namespace DB
 
